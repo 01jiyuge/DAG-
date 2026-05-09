@@ -1,0 +1,39 @@
+[toolchain]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hpd-agent"
+version = "0.1.0"
+description = "LLM Agent DAG Orchestration System based on LangChain and LangGraph"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+
+dependencies = [
+    "langchain>=0.1.0",
+    "langgraph>=0.0.60",
+    "openai>=1.0.0",
+    "dashscope>=1.14.0",
+    "pydantic>=2.0.0",
+    "prompt-toolkit>=3.0.0",
+    "pillow>=10.0.0",
+    "python-dotenv>=1.0.0",
+    "aiohttp>=3.9.0",
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0"
+]
+
+[project.scripts]
+hpd-agent = "hpd_agent.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.isort]
+profile = "black"
